@@ -1,0 +1,12 @@
+$amount = $request->paid_amount;
+        $current_date = Carbon::now();
+        $dues = Due::where('name','example')->whereDate('date', '<=', $current_date)->orderBy('date','DESC')->whereNull('paid_amount')->get();
+
+        foreach $dues as $d if($amount >= $d->amount) then paid;
+        $amount = $amount - $d->amount
+        set status full payment
+        else if ($amount >0)
+        then 
+        $d->amount = $d->amount - amount;
+        make it partial,
+        set amount =0
